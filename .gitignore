@@ -3,3 +3,10 @@
 ################################################################################
 
 /DomainDrivenDesign.Core/bin/Debug
+/DomainDrivenDesign.Core/obj/Debug
+/DomainDrivenDesign.Domain/bin/Debug
+/DomainDrivenDesign.Domain/obj/Debug
+/DomainDrivenDesign.TestDomain/bin/Debug
+/DomainDrivenDesign.TestDomain/obj/Debug
+/packages
+/.vs/DomainDrivenDesign.Core/v15
