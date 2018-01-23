@@ -37,7 +37,7 @@ namespace DomainDrivenDesign.TestDomain
                 checkinId = db.CheckinTests.Select(i => i.Id).FirstOrDefault();
             }
             
-            cmdHandle.Handle(new CommentCheckinByEvaluator(checkinId,"Hello world xxx",1));
+            cmdHandle.Handle(new CommentCheckinByEvaluator(checkinId,"Hello world temporary",2));
         }
     }
 }
