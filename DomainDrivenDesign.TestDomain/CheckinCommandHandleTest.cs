@@ -39,5 +39,19 @@ namespace DomainDrivenDesign.TestDomain
 
             cmdHandle.Handle(new CommentCheckinByEvaluator(checkinId,"Hello world apply private reflection",2));
         }
+
+        [TestMethod]
+        public void EmployeeComment()
+        {
+            var checkinId = Guid.Parse("C127A8B7-A3EE-4617-8952-A1F407B1D70E");
+
+            using (var db = new HrisDbContext())
+            {
+                checkinId = db.CheckinTests.Select(i => i.Id).FirstOrDefault();
+            }
+            Console.WriteLine($"AggregateId: {checkinId}");
+
+            cmdHandle.Handle(new CommentCheckinByEmployee(checkinId, "Hello world apply private reflection", 2));
+        }
     }
 }
