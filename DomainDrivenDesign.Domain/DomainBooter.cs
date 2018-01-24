@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace DomainDrivenDesign.Domain
      
         public static void Boot()
         {
+            //should consider this
+            new CreateDatabaseIfNotExists<HrisDbContext>().InitializeDatabase(new HrisDbContext());
+
             CheckinEventHandle checkinEventHandle=new CheckinEventHandle();
             HrisMessageBuss.RegisterEvent<CheckinCreated>(checkinEventHandle.Handle);
             HrisMessageBuss.RegisterEvent<CheckinCommentCommented>(checkinEventHandle.Handle);

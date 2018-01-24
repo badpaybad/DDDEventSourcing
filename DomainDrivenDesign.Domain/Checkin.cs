@@ -28,7 +28,7 @@ namespace DomainDrivenDesign.Domain
 
         List<CheckinComment> Comments = new List<CheckinComment>();
 
-        public void Apply(CheckinCreated e)
+        void Apply(CheckinCreated e)
         {
             Id = e.Id;
             StartDate = e.StartDate;
@@ -36,12 +36,12 @@ namespace DomainDrivenDesign.Domain
             Status = CheckinStatus.Pending;
         }
 
-        public void Apply(CheckinCompleted e)
+        void Apply(CheckinCompleted e)
         {
             Status = CheckinStatus.Completed;
         }
 
-        public void Apply(CheckinCommentCommented e)
+        void Apply(CheckinCommentCommented e)
         {
             Comments.Add(new CheckinComment() { Comment = e.Comment, CreatedOn = e.CreatedOn, UserId = e.UserId });
         }

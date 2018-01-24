@@ -24,7 +24,9 @@ namespace DomainDrivenDesign.Domain.Commands
 
         public void Handle(CommentCheckinByEvaluator c)
         {
-            _repository.GetDoSave(c.CheckinId,a=>a.EvaluatorComment(c.Comment,c.CreatedBy));
+            var o = _repository.Get(c.CheckinId);
+            o.EmployeeComment(c.Comment, c.CreatedBy);
+            _repository.Save(o);
         }
     }
 }

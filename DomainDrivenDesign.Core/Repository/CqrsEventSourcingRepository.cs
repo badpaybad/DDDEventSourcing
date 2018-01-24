@@ -76,7 +76,9 @@ namespace DomainDrivenDesign.Core.Repository
 
             #region check lastest version
 
-            var lastVersion = _eventSourcingDbContext.EventSoucings.Where(i => i.Id == aggregate.Id.ToString())
+            var lastVersion = _eventSourcingDbContext.EventSoucings
+                .AsNoTracking()
+                .Where(i => i.Id == aggregate.Id.ToString())
                 .Select(i=>i.Version)
                 .OrderByDescending(i=>i)
                 .FirstOrDefault();
@@ -101,7 +103,7 @@ namespace DomainDrivenDesign.Core.Repository
                 //build event data add to event store db
                 eventChanges.Add(new EventSourcingDescription()
                 {
-                    Id = e.Id.ToString(),
+                    Id = aggregate.Id.ToString(),
                     AggregateType = typeof(TAggregate).AssemblyQualifiedName,
                     EventData = JsonConvert.SerializeObject(e),
                     EventType = e.GetType().AssemblyQualifiedName,

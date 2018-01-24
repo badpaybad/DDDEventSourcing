@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DomainDrivenDesign.Core.Events;
+using DomainDrivenDesign.Core.Extensions;
 
 namespace DomainDrivenDesign.Core
 {
@@ -18,14 +19,16 @@ namespace DomainDrivenDesign.Core
 
         protected void ApplyChange(BaseEvent e)
         {
+            this.AsDynamic().Apply(e);
             _changes.Add(e);
         }
 
         public void LoadFromHistory(IList<BaseEvent> eventsHistory)
         {
-            foreach (var @event in eventsHistory)
+            foreach (var e in eventsHistory)
             {
-                ((dynamic)this).Apply((dynamic)@event);
+                //((dynamic)this).Apply((dynamic)@event);
+                this.AsDynamic().Apply(e);
             }
         }
     }

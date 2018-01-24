@@ -59,6 +59,8 @@
     <Compile Include="Events\BaseEvent.cs" />
     <Compile Include="Events\IEventHandle.cs" />
     <Compile Include="Events\IEventPublisher.cs" />
+    <Compile Include="Extensions\PrivateReflectionDynamicObject.cs" />
+    <Compile Include="Extensions\PrivateReflectionDynamicObjectExtensions.cs" />
     <Compile Include="Hris\CheckinHistoryTest.cs" />
     <Compile Include="Hris\CheckinTest.cs" />
     <Compile Include="Hris\HrisMessageBuss.cs" />

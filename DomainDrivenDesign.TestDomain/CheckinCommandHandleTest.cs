@@ -15,8 +15,7 @@ namespace DomainDrivenDesign.TestDomain
 
         public CheckinCommandHandleTest()
         {
-            //should consider this
-            new CreateDatabaseIfNotExists<HrisDbContext>().InitializeDatabase(new HrisDbContext());
+          
 
             DomainBooter.Boot();
         }
@@ -36,8 +35,9 @@ namespace DomainDrivenDesign.TestDomain
             {
                 checkinId = db.CheckinTests.Select(i => i.Id).FirstOrDefault();
             }
-            
-            cmdHandle.Handle(new CommentCheckinByEvaluator(checkinId,"Hello world temporary",2));
+            Console.WriteLine($"AggregateId: {checkinId}");
+
+            cmdHandle.Handle(new CommentCheckinByEvaluator(checkinId,"Hello world apply private reflection",2));
         }
     }
 }
