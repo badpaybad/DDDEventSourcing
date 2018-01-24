@@ -10,6 +10,7 @@ namespace DomainDrivenDesign.Core.Hris
         [Key]
         [Column(Order = 0)]
         public Guid Id { get; set; }
+        public Guid CheckinId { get; set; }
         public int UserId { get; set; }
         public string Comment { get; set; }
         public DateTime CreatedOn { get; set; }

@@ -14,7 +14,7 @@ namespace DomainDrivenDesign.TestDomain
 
         public static void Main(params string[] args)
         {
-            DomainBooter.Boot();
+            DomainEngine.Boot();
 
             Console.WriteLine("Hello");
             Console.ReadLine();

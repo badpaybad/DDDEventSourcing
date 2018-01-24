@@ -35,7 +35,8 @@ namespace DomainDrivenDesign.Domain.Events
                     Id = e.Id,
                     Comment =e.Comment,
                     CreatedOn=e.CreatedOn,
-                    UserId=e.UserId
+                    UserId=e.UserId,
+                    CheckinId=e.CheckinId
                 });
                 db.SaveChanges();
             }

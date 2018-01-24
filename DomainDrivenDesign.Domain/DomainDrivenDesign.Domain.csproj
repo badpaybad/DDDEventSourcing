@@ -52,7 +52,7 @@
     <Compile Include="Commands\CommentCheckinByEmployee.cs" />
     <Compile Include="Commands\CommentCheckinByEvaluator.cs" />
     <Compile Include="Commands\CreateCheckin.cs" />
-    <Compile Include="DomainBooter.cs" />
+    <Compile Include="DomainEngine.cs" />
     <Compile Include="Entities\CheckinComment.cs" />
     <Compile Include="Events\CheckinCommentCommented.cs" />
     <Compile Include="Events\CheckinCompleted.cs" />

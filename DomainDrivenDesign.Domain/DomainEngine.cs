@@ -10,7 +10,7 @@ using DomainDrivenDesign.Domain.Events;
 
 namespace DomainDrivenDesign.Domain
 {
-    public static class DomainBooter
+    public static class DomainEngine
     {
      
         public static void Boot()

@@ -17,7 +17,7 @@ namespace DomainDrivenDesign.TestDomain
         {
           
 
-            DomainBooter.Boot();
+            DomainEngine.Boot();
         }
 
         [TestMethod]
