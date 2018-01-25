@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DomainDrivenDesign.Core.Events;
-using DomainDrivenDesign.Core.Extensions;
+using DomainDrivenDesign.Core.Reflection;
 
 namespace DomainDrivenDesign.Core
 {

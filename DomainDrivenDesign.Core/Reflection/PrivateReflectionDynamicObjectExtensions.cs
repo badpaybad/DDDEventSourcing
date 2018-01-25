@@ -1,4 +1,4 @@
-﻿namespace DomainDrivenDesign.Core.Extensions
+﻿namespace DomainDrivenDesign.Core.Reflection
 {
     public static class PrivateReflectionDynamicObjectExtensions
     {

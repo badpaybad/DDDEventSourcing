@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using DomainDrivenDesign.Core.Commands;
 using DomainDrivenDesign.Core.Events;
+using DomainDrivenDesign.Core.Reflection;
 
 namespace DomainDrivenDesign.Core.Implements
 {
@@ -17,9 +20,101 @@ namespace DomainDrivenDesign.Core.Implements
 
         static MemoryMessageBuss()
         {
-           
+
         }
 
+        /// <summary>
+        /// Can load dynamic assembly (dll file) and register Handle
+        /// can load dll from folder Bin eg:
+        ///   var executingAssembly = Assembly.GetExecutingAssembly();
+        ///   List<string> allAssemblies = new List<string>();
+        ///   string path = Path.GetDirectoryName(executingAssembly.Location);
+        ///   foreach (string dll in Directory.GetFiles(path, "*.dll"))allAssemblies.Add(dll);
+        /// </summary>
+        /// <param name="pathFile"></param>
+        public static void RegisterAssembly(string pathFile)
+        {
+
+            var executingAssembly = Assembly.LoadFile(pathFile);
+            var allTypes = executingAssembly.GetTypes();
+            var listHandler = allTypes.Where(t => typeof(ICqrsHandle).IsAssignableFrom(t)
+                                                  && t.IsClass && !t.IsAbstract).ToList();
+            
+            Console.WriteLine(pathFile);
+            Console.WriteLine($"Found {listHandler.Count} handle(s) to register to message buss");
+
+            foreach (var handlerType in listHandler)
+            {
+                var cqrsHandler = (ICqrsHandle)Activator.CreateInstance(handlerType);
+                if (cqrsHandler == null) continue;
+
+                Console.WriteLine($"Found Handle type: {cqrsHandler.GetType()}");
+
+                MethodInfo[] allMethod = cqrsHandler.GetType()
+                    .GetMethods(BindingFlags.Public | BindingFlags.Instance);
+
+                foreach (var mi in allMethod)
+                {
+                    if (!mi.Name.Equals("handle", StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+
+                    var pParameterType = mi.GetParameters().SingleOrDefault().ParameterType;
+
+                    if (typeof(IEvent).IsAssignableFrom(pParameterType))
+                    {
+                        lock (_eventLocker)
+                        {
+                            var t = pParameterType;
+
+                            List<Action<IEvent>> ax;
+
+                            if (_eventHandler.TryGetValue(t, out ax))
+                            {
+                                ax.Add(p =>
+                                {
+                                    mi.Invoke(cqrsHandler, new object[] { p });
+                                });
+                            }
+                            else
+                            {
+                                ax = new List<Action<IEvent>>() {
+                                    p =>
+                                    {
+                                        mi.Invoke(cqrsHandler, new object[] { p });
+                                    } };
+                            }
+
+                            _eventHandler[t] = ax;
+                        }
+                        Console.WriteLine($"Regsitered method to process event type: {pParameterType}");
+                    }
+
+                    if (typeof(ICommand).IsAssignableFrom(pParameterType))
+                    {
+                        lock (_commandLocker)
+                        {
+                            var t = pParameterType;
+
+                            Action<ICommand> ax;
+
+                            if (_commandHandler.TryGetValue(t, out ax))
+                            {
+                                throw new Exception($"Should only one handle to cover type: {t}. Check DomainEngine.Boot");
+                            }
+
+                            _commandHandler[t] = (p) =>
+                            {
+                                mi.Invoke(cqrsHandler, new object[] { p });
+                            };
+                        }
+                        Console.WriteLine($"Regsitered method to process command type: {pParameterType}");
+
+                    }
+                }
+            }
+        }
 
         public static void RegisterEvent<T>(Action<T> handle) where T : IEvent
         {
@@ -75,7 +170,7 @@ namespace DomainDrivenDesign.Core.Implements
                     throw new Exception($"Should only one handle to cover type: {t}. Check DomainEngine.Boot");
                 }
 
-                _commandHandler[t] = (p)=> handle((T)p);
+                _commandHandler[t] = (p) => handle((T)p);
             }
         }
 
@@ -85,14 +180,14 @@ namespace DomainDrivenDesign.Core.Implements
             Action<ICommand> a;
             lock (_commandLocker)
             {
-                if (!_commandHandler.TryGetValue(t, out a) || a == null )
+                if (!_commandHandler.TryGetValue(t, out a) || a == null)
                 {
                     throw new EntryPointNotFoundException($"Not found type: {t}. Check DomainEngine.Boot");
                 }
             }
-            
+
             a(e);
-          
+
         }
 
 
