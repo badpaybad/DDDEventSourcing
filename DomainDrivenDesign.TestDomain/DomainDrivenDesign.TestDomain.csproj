@@ -56,7 +56,7 @@
   <ItemGroup>
     <Compile Include="CheckinCommandHandleTest.cs" />
     <Compile Include="CheckinEventHandleTest.cs" />
-    <Compile Include="HrisMemoryMessageBussTest.cs" />
+    <Compile Include="MemoryMessageBussTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -11,9 +11,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DomainDrivenDesign.TestDomain
 {
     [TestClass]
-    public class HrisMemoryMessageBussTest
+    public class MemoryMessageBussTest
     {
-        public HrisMemoryMessageBussTest()
+        public MemoryMessageBussTest()
         {
             DomainEngine.Boot();
         }
