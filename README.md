@@ -7,7 +7,7 @@ DDD EventSourcing
  - System.Data.SqlClient 4.4.2
  - MsSql 2008 or later
  
- #Guider
+ # Guider
  - Clone and open with visual studio 2017
  - Rebuill all solution to restore nuget package
  
@@ -17,3 +17,6 @@ DDD EventSourcing
  
  ## class DomainEngine
  - To register handle to process Event and Command
+
+ ## class Checkin (DDD)
+ class Checkin inherit AggregateRoot as an Domain in this sample.
