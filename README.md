@@ -9,7 +9,7 @@ DDD EventSourcing
  
  # Guider
  - Clone and open with visual studio 2017
- - Rebuill all solution to restore nuget package
+ - Rebuild all solution to restore nuget package
  
  ## class MemoryMessageBuss
  - Fake message buss
