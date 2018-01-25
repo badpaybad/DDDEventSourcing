@@ -11,4 +11,8 @@ DDDEvemtSourcing
  Rebuill all solution to restore nuget package
  
  ## class MemoryMessageBuss
+ Fake message buss
+ Can use RabitMQ or AzzureServicesBuss or Redis queue
+ 
  ## class DomainEngine
+ To register handle to process Event and Command
