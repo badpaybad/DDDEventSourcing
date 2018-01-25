@@ -1,18 +1,19 @@
 # Domain driven design and EventSourcing
 DDD EventSourcing
 
- .Net framework 4.6.1
- Entity framework 6.0.0
- Newtonjson 10.0.3
- System.Data.SqlClient 4.4.2
+ - .Net framework 4.6.1
+ - Entity framework 6.0.0
+ - Newtonjson 10.0.3
+ - System.Data.SqlClient 4.4.2
+ - MsSql 2008 or later
  
  #Guider
- Clone and open with visual studio 2017
- Rebuill all solution to restore nuget package
+ - Clone and open with visual studio 2017
+ - Rebuill all solution to restore nuget package
  
  ## class MemoryMessageBuss
- Fake message buss
- Implement your own with RabitMQ or AzzureServicesBuss or Redis queue
+ - Fake message buss
+ - Implement your own with RabitMQ or AzzureServicesBuss or Redis queue
  
  ## class DomainEngine
- To register handle to process Event and Command
+ - To register handle to process Event and Command
