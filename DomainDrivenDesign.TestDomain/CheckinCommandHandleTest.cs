@@ -31,7 +31,7 @@ namespace DomainDrivenDesign.TestDomain
         {
             var checkinId = Guid.Parse("C127A8B7-A3EE-4617-8952-A1F407B1D70E");
 
-            using (var db = new HrisDbContext())
+            using (var db = new TestDbContext())
             {
                 checkinId = db.CheckinTests.Select(i => i.Id).FirstOrDefault();
             }
@@ -45,7 +45,7 @@ namespace DomainDrivenDesign.TestDomain
         {
             var checkinId = Guid.Parse("C127A8B7-A3EE-4617-8952-A1F407B1D70E");
 
-            using (var db = new HrisDbContext())
+            using (var db = new TestDbContext())
             {
                 checkinId = db.CheckinTests.Select(i => i.Id).FirstOrDefault();
             }

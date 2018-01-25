@@ -14,7 +14,7 @@ namespace DomainDrivenDesign.Domain.Events
     {
         public void Handle(CheckinCreated e)
         {
-            using (var db=new HrisDbContext())
+            using (var db=new TestDbContext())
             {
                 db.CheckinTests.Add(new CheckinTest()
                 {
@@ -29,7 +29,7 @@ namespace DomainDrivenDesign.Domain.Events
 
         public void Handle(CheckinCommentCommented e)
         {
-            using (var db = new HrisDbContext())
+            using (var db = new TestDbContext())
             {
                 db.CheckinHistoryTests.Add(new CheckinHistoryTest()
                 {
@@ -45,7 +45,7 @@ namespace DomainDrivenDesign.Domain.Events
 
         public void Handle(CheckinCompleted e)
         {
-            using (var db = new HrisDbContext())
+            using (var db = new TestDbContext())
             {
                 var temp = db.CheckinTests.SingleOrDefault(i => i.Id == e.Id);
                 if (temp != null)

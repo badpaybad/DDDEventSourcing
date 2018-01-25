@@ -11,7 +11,7 @@ namespace DomainDrivenDesign.TestDomain
     {
         public CheckinEventHandleTest()
         {
-            new CreateDatabaseIfNotExists<HrisDbContext>().InitializeDatabase(new HrisDbContext());
+            new CreateDatabaseIfNotExists<TestDbContext>().InitializeDatabase(new TestDbContext());
         }
 
         CheckinEventHandle evtHandle=new CheckinEventHandle();

@@ -65,7 +65,7 @@
     <Compile Include="Implements\Model\CheckinTest.cs" />
     <Compile Include="Implements\MemoryMessageBuss.cs" />
     <Compile Include="Implements\EventPublisher.cs" />
-    <Compile Include="Implements\HrisDbContext.cs" />
+    <Compile Include="Implements\TestDbContext.cs" />
     <Compile Include="EventSourcingRepository\AggregateHistoryBuilderException.cs" />
     <Compile Include="EventSourcingRepository\AggregateConflickVersionException.cs" />
     <Compile Include="Ef\AbstractTableMapConfiguration.cs" />

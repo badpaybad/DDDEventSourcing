@@ -16,7 +16,7 @@ namespace DomainDrivenDesign.Domain
         public static void Boot()
         {
             //should consider this
-            new CreateDatabaseIfNotExists<HrisDbContext>().InitializeDatabase(new HrisDbContext());
+            new CreateDatabaseIfNotExists<TestDbContext>().InitializeDatabase(new TestDbContext());
 
             EventHandleRegister();
 

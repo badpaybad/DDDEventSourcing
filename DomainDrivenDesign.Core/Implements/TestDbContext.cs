@@ -4,9 +4,9 @@ using DomainDrivenDesign.Core.Implements.Model;
 
 namespace DomainDrivenDesign.Core.Implements
 {
-    public class HrisDbContext : BaseDbContext
+    public class TestDbContext : BaseDbContext
     {
-        public HrisDbContext() : base("HrisTest")
+        public TestDbContext() : base("HrisTest")
         {
         }
 
