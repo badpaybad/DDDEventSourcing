@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
-using DomainDrivenDesign.Core.Hris;
+using DomainDrivenDesign.Core.Implements;
 using DomainDrivenDesign.Domain;
 using DomainDrivenDesign.Domain.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

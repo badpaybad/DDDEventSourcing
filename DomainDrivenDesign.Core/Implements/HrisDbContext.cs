@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
 using DomainDrivenDesign.Core.Ef;
-using DomainDrivenDesign.Core.Hris.Model;
+using DomainDrivenDesign.Core.Implements.Model;
 
-namespace DomainDrivenDesign.Core.Hris
+namespace DomainDrivenDesign.Core.Implements
 {
     public class HrisDbContext : BaseDbContext
     {

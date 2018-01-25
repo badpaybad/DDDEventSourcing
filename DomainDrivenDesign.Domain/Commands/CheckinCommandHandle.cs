@@ -1,5 +1,6 @@
 ﻿using DomainDrivenDesign.Core.Commands;
 using DomainDrivenDesign.Core.EventSourcingRepository;
+using DomainDrivenDesign.Core.Implements;
 
 namespace DomainDrivenDesign.Domain.Commands
 {
@@ -9,7 +10,7 @@ namespace DomainDrivenDesign.Domain.Commands
 
         public CheckinCommandHandle()
         {
-            _repository = new CqrsEventSourcingRepository<Checkin>(new Core.Hris.EventPublisher());
+            _repository = new CqrsEventSourcingRepository<Checkin>(new EventPublisher());
         }
 
         public void Handle(CreateCheckin c)

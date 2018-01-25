@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DomainDrivenDesign.Core.Events;
-using DomainDrivenDesign.Core.Hris;
-using DomainDrivenDesign.Core.Hris.Model;
+using DomainDrivenDesign.Core.Implements;
+using DomainDrivenDesign.Core.Implements.Model;
 
 namespace DomainDrivenDesign.Domain.Events
 {
@@ -14,7 +14,7 @@ namespace DomainDrivenDesign.Domain.Events
     {
         public void Handle(CheckinCreated e)
         {
-            using (var db=new Core.Hris.HrisDbContext())
+            using (var db=new HrisDbContext())
             {
                 db.CheckinTests.Add(new CheckinTest()
                 {
@@ -29,7 +29,7 @@ namespace DomainDrivenDesign.Domain.Events
 
         public void Handle(CheckinCommentCommented e)
         {
-            using (var db = new Core.Hris.HrisDbContext())
+            using (var db = new HrisDbContext())
             {
                 db.CheckinHistoryTests.Add(new CheckinHistoryTest()
                 {
@@ -45,7 +45,7 @@ namespace DomainDrivenDesign.Domain.Events
 
         public void Handle(CheckinCompleted e)
         {
-            using (var db = new Core.Hris.HrisDbContext())
+            using (var db = new HrisDbContext())
             {
                 var temp = db.CheckinTests.SingleOrDefault(i => i.Id == e.Id);
                 if (temp != null)

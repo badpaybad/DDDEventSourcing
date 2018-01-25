@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
-using DomainDrivenDesign.Core.Hris;
+using DomainDrivenDesign.Core.Implements;
 using DomainDrivenDesign.Domain.Events;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

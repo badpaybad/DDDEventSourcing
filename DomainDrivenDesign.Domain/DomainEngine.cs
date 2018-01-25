@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DomainDrivenDesign.Core.Hris;
+using DomainDrivenDesign.Core.Implements;
 using DomainDrivenDesign.Domain.Commands;
 using DomainDrivenDesign.Domain.Events;
 

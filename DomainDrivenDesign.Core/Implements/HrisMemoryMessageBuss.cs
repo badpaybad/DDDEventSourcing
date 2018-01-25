@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using DomainDrivenDesign.Core.Commands;
 using DomainDrivenDesign.Core.Events;
 
-namespace DomainDrivenDesign.Core.Hris
+namespace DomainDrivenDesign.Core.Implements
 {
     public static class HrisMemoryMessageBuss
     {

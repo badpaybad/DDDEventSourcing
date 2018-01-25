@@ -61,11 +61,11 @@
     <Compile Include="Events\IEventPublisher.cs" />
     <Compile Include="Extensions\PrivateReflectionDynamicObject.cs" />
     <Compile Include="Extensions\PrivateReflectionDynamicObjectExtensions.cs" />
-    <Compile Include="Hris\Model\CheckinHistoryTest.cs" />
-    <Compile Include="Hris\Model\CheckinTest.cs" />
-    <Compile Include="Hris\HrisMemoryMessageBuss.cs" />
-    <Compile Include="Hris\EventPublisher.cs" />
-    <Compile Include="Hris\HrisDbContext.cs" />
+    <Compile Include="Implements\Model\CheckinHistoryTest.cs" />
+    <Compile Include="Implements\Model\CheckinTest.cs" />
+    <Compile Include="Implements\HrisMemoryMessageBuss.cs" />
+    <Compile Include="Implements\EventPublisher.cs" />
+    <Compile Include="Implements\HrisDbContext.cs" />
     <Compile Include="EventSourcingRepository\AggregateHistoryBuilderException.cs" />
     <Compile Include="EventSourcingRepository\AggregateConflickVersionException.cs" />
     <Compile Include="Ef\AbstractTableMapConfiguration.cs" />
