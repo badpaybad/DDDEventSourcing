@@ -63,7 +63,7 @@
     <Compile Include="Extensions\PrivateReflectionDynamicObjectExtensions.cs" />
     <Compile Include="Implements\Model\CheckinHistoryTest.cs" />
     <Compile Include="Implements\Model\CheckinTest.cs" />
-    <Compile Include="Implements\HrisMemoryMessageBuss.cs" />
+    <Compile Include="Implements\MemoryMessageBuss.cs" />
     <Compile Include="Implements\EventPublisher.cs" />
     <Compile Include="Implements\HrisDbContext.cs" />
     <Compile Include="EventSourcingRepository\AggregateHistoryBuilderException.cs" />

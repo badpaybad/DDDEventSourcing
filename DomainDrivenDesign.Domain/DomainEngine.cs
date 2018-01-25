@@ -26,17 +26,17 @@ namespace DomainDrivenDesign.Domain
         private static void CommandHandleRegister()
         {
             CheckinCommandHandle checkinCommandHandle=new CheckinCommandHandle();
-            HrisMemoryMessageBuss.RegisterCommand<CreateCheckin>(checkinCommandHandle.Handle);
-            HrisMemoryMessageBuss.RegisterCommand<CommentCheckinByEmployee>(checkinCommandHandle.Handle);
-            HrisMemoryMessageBuss.RegisterCommand<CommentCheckinByEvaluator>(checkinCommandHandle.Handle);
+            MemoryMessageBuss.RegisterCommand<CreateCheckin>(checkinCommandHandle.Handle);
+            MemoryMessageBuss.RegisterCommand<CommentCheckinByEmployee>(checkinCommandHandle.Handle);
+            MemoryMessageBuss.RegisterCommand<CommentCheckinByEvaluator>(checkinCommandHandle.Handle);
         }
 
         private static void EventHandleRegister()
         {
             CheckinEventHandle checkinEventHandle = new CheckinEventHandle();
-            HrisMemoryMessageBuss.RegisterEvent<CheckinCreated>(checkinEventHandle.Handle);
-            HrisMemoryMessageBuss.RegisterEvent<CheckinCommentCommented>(checkinEventHandle.Handle);
-            HrisMemoryMessageBuss.RegisterEvent<CheckinCompleted>(checkinEventHandle.Handle);
+            MemoryMessageBuss.RegisterEvent<CheckinCreated>(checkinEventHandle.Handle);
+            MemoryMessageBuss.RegisterEvent<CheckinCommentCommented>(checkinEventHandle.Handle);
+            MemoryMessageBuss.RegisterEvent<CheckinCompleted>(checkinEventHandle.Handle);
         }
     }
 }

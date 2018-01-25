@@ -5,7 +5,7 @@ using DomainDrivenDesign.Core.Events;
 
 namespace DomainDrivenDesign.Core.Implements
 {
-    public static class HrisMemoryMessageBuss
+    public static class MemoryMessageBuss
     {
 
         static readonly Dictionary<Type, List<Action<IEvent>>> _eventHandler = new Dictionary<Type, List<Action<IEvent>>>();
@@ -15,7 +15,7 @@ namespace DomainDrivenDesign.Core.Implements
         static object _commandLocker = new object();
 
 
-        static HrisMemoryMessageBuss()
+        static MemoryMessageBuss()
         {
            
         }

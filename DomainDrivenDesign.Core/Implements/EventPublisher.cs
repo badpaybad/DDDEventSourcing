@@ -6,7 +6,7 @@ namespace DomainDrivenDesign.Core.Implements
     {
         public void Publish(IEvent e)
         {
-            HrisMemoryMessageBuss.Push(e);
+            MemoryMessageBuss.Push(e);
         }
     }
 }
