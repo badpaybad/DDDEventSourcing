@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DomainDrivenDesign.Core.Hris
+namespace DomainDrivenDesign.Core.Hris.Model
 {
     [Table("CheckinHistoryTest")]
     public class CheckinHistoryTest

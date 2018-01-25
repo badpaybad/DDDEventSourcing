@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using DomainDrivenDesign.Core.Ef;
+using DomainDrivenDesign.Core.Hris.Model;
 
 namespace DomainDrivenDesign.Core.Hris
 {

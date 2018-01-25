@@ -73,14 +73,14 @@ namespace DomainDrivenDesign.Core.Hris
 
                 if (_commandHandler.TryGetValue(t, out ax))
                 {
-                    throw new Exception($"Should only one handle to cover type: {t}");
+                    throw new Exception($"Should only one handle to cover type: {t}. Check DomainEngine.Boot");
                 }
 
                 _commandHandler[t] = (p)=> handle((T)p);
             }
         }
 
-        internal static void Push(ICommand e)
+        public static void PushCommand(ICommand e)
         {
             var t = e.GetType();
             Action<ICommand> a;
@@ -88,7 +88,7 @@ namespace DomainDrivenDesign.Core.Hris
             {
                 if (!_commandHandler.TryGetValue(t, out a) || a == null )
                 {
-                    throw new EntryPointNotFoundException($"Not found type: {t}");
+                    throw new EntryPointNotFoundException($"Not found type: {t}. Check DomainEngine.Boot");
                 }
             }
             

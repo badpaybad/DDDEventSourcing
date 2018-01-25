@@ -18,11 +18,25 @@ namespace DomainDrivenDesign.Domain
             //should consider this
             new CreateDatabaseIfNotExists<HrisDbContext>().InitializeDatabase(new HrisDbContext());
 
-            CheckinEventHandle checkinEventHandle=new CheckinEventHandle();
+            EventHandleRegister();
+
+            CommandHandleRegister();
+        }
+
+        private static void CommandHandleRegister()
+        {
+            CheckinCommandHandle checkinCommandHandle=new CheckinCommandHandle();
+            HrisMemoryMessageBuss.RegisterCommand<CreateCheckin>(checkinCommandHandle.Handle);
+            HrisMemoryMessageBuss.RegisterCommand<CommentCheckinByEmployee>(checkinCommandHandle.Handle);
+            HrisMemoryMessageBuss.RegisterCommand<CommentCheckinByEvaluator>(checkinCommandHandle.Handle);
+        }
+
+        private static void EventHandleRegister()
+        {
+            CheckinEventHandle checkinEventHandle = new CheckinEventHandle();
             HrisMemoryMessageBuss.RegisterEvent<CheckinCreated>(checkinEventHandle.Handle);
             HrisMemoryMessageBuss.RegisterEvent<CheckinCommentCommented>(checkinEventHandle.Handle);
             HrisMemoryMessageBuss.RegisterEvent<CheckinCompleted>(checkinEventHandle.Handle);
-            
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DomainDrivenDesign.Core.Events;
 using DomainDrivenDesign.Core.Hris;
+using DomainDrivenDesign.Core.Hris.Model;
 
 namespace DomainDrivenDesign.Domain.Events
 {
@@ -15,7 +16,7 @@ namespace DomainDrivenDesign.Domain.Events
         {
             using (var db=new Core.Hris.HrisDbContext())
             {
-                db.CheckinTests.Add(new Core.Hris.CheckinTest()
+                db.CheckinTests.Add(new CheckinTest()
                 {
                     Id = (Guid) e.Id,
                     Duration = e.Duration,
