@@ -1,5 +1,5 @@
-# DDDEvemtSourcing
-DDDEvemtSourcing
+# Domain driven design and EventSourcing
+DDD EventSourcing
 
  .Net framework 4.6.1
  Entity framework 6.0.0
