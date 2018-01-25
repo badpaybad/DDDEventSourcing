@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DomainDrivenDesign.Core.Repository
+namespace DomainDrivenDesign.Core.EventSourcingRepository
 {
     public interface ICqrsEventSourcingRepository<TAggregate> where TAggregate : AggregateRoot
     {

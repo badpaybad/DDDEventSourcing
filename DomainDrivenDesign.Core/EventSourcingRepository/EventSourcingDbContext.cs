@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using DomainDrivenDesign.Core.Ef;
 
-namespace DomainDrivenDesign.Core.Repository
+namespace DomainDrivenDesign.Core.EventSourcingRepository
 {
     internal class EventSourcingDbContext : BaseDbContext
     {

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DomainDrivenDesign.Core.Repository
+namespace DomainDrivenDesign.Core.EventSourcingRepository
 {
     [Table("EventSourcingDescription")]
     internal class EventSourcingDescription

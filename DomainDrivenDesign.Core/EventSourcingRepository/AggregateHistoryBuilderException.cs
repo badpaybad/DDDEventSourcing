@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace DomainDrivenDesign.Core.Repository
+namespace DomainDrivenDesign.Core.EventSourcingRepository
 {
     public class AggregateHistoryBuilderException : Exception
     {

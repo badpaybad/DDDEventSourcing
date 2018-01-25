@@ -1,5 +1,5 @@
 ﻿using DomainDrivenDesign.Core.Commands;
-using DomainDrivenDesign.Core.Repository;
+using DomainDrivenDesign.Core.EventSourcingRepository;
 
 namespace DomainDrivenDesign.Domain.Commands
 {

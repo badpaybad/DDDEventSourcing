@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using DomainDrivenDesign.Core.Commands;
 using DomainDrivenDesign.Core.Events;
-using DomainDrivenDesign.Core.Repository;
 
 namespace DomainDrivenDesign.Core.Hris
 {
-    public static class HrisMessageBuss
+    public static class HrisMemoryMessageBuss
     {
 
         static readonly Dictionary<Type, List<Action<IEvent>>> _eventHandler = new Dictionary<Type, List<Action<IEvent>>>();
+        static readonly Dictionary<Type, Action<ICommand>> _commandHandler = new Dictionary<Type, Action<ICommand>>();
 
-        static object _lock = new object();
+        static object _eventLocker = new object();
+        static object _commandLocker = new object();
 
 
-        static HrisMessageBuss()
+        static HrisMemoryMessageBuss()
         {
            
         }
@@ -23,7 +24,7 @@ namespace DomainDrivenDesign.Core.Hris
 
         public static void RegisterEvent<T>(Action<T> handle) where T : IEvent
         {
-            lock (_lock)
+            lock (_eventLocker)
             {
                 var t = typeof(T);
 
@@ -42,11 +43,11 @@ namespace DomainDrivenDesign.Core.Hris
             }
         }
 
-        internal static void InvokeEvent(IEvent e)
+        internal static void Push(IEvent e)
         {
             var t = e.GetType();
             List<Action<IEvent>> listAction;
-            lock (_lock)
+            lock (_eventLocker)
             {
                 if (!_eventHandler.TryGetValue(t, out listAction) || listAction == null || listAction.Count == 0)
                 {
@@ -58,6 +59,41 @@ namespace DomainDrivenDesign.Core.Hris
             {
                 a(e);
             }
+        }
+
+
+
+        public static void RegisterCommand<T>(Action<T> handle) where T : ICommand
+        {
+            lock (_commandLocker)
+            {
+                var t = typeof(T);
+
+                Action<ICommand> ax;
+
+                if (_commandHandler.TryGetValue(t, out ax))
+                {
+                    throw new Exception($"Should only one handle to cover type: {t}");
+                }
+
+                _commandHandler[t] = (p)=> handle((T)p);
+            }
+        }
+
+        internal static void Push(ICommand e)
+        {
+            var t = e.GetType();
+            Action<ICommand> a;
+            lock (_commandLocker)
+            {
+                if (!_commandHandler.TryGetValue(t, out a) || a == null )
+                {
+                    throw new EntryPointNotFoundException($"Not found type: {t}");
+                }
+            }
+            
+            a(e);
+          
         }
 
 

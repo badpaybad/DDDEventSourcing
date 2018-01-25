@@ -10,7 +10,7 @@ namespace DomainDrivenDesign.Core.Hris
     {
         public void Publish(IEvent e)
         {
-            HrisMessageBuss.InvokeEvent(e);
+            HrisMemoryMessageBuss.Push(e);
         }
     }
 }

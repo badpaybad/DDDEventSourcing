@@ -6,7 +6,7 @@ using DomainDrivenDesign.Core.Events;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace DomainDrivenDesign.Core.Repository
+namespace DomainDrivenDesign.Core.EventSourcingRepository
 {
     public class CqrsEventSourcingRepository<TAggregate> : ICqrsEventSourcingRepository<TAggregate>
         where TAggregate : AggregateRoot, new()
