@@ -18,7 +18,7 @@ namespace DomainDrivenDesign.Domain
         public static void Boot()
         {
             //should consider this
-            //new CreateDatabaseIfNotExists<TestDbContext>().InitializeDatabase(new TestDbContext());
+            new CreateDatabaseIfNotExists<TestDbContext>().InitializeDatabase(new TestDbContext());
 
             //if dont want manual regist = code
             //can use reflection to load dll from folder Bin eg:
