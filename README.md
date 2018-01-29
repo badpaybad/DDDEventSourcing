@@ -11,7 +11,7 @@ DDD EventSourcing
  - Clone and open with visual studio 2017
  - Rebuild all solution to restore nuget package
  
- # Thoery
+ # Thoery coding
  UI -> people Read and think -> people Do, action ... something -> UI push Command(s) -> Command Handle -> Build Object Domain by Events using Repository -> Domain call action(s) do business -> Repository store Events into EventSourcing Db -> Fire Event -> Event Handle write to Database Read -> Thin Query Facade from Db read -> UI ...
  
  ## class MemoryMessageBuss
@@ -25,11 +25,15 @@ DDD EventSourcing
  ## class Checkin (DDD)
  class Checkin inherit AggregateRoot as an Domain in this sample.
 
-# ICqrsHandle
+## ICqrsHandle
 Use to reflection to load dynamic file dll and register to MemoryMessageBuss
 ICommandHandle , IEventHandle inherit from ICqrsHandle
 - Check function DomainEngine.Boot() and find MemoryMessageBuss.RegisterAssembly(assembly);
 
-#DomainDrivenDesign.Core.Implements
+## DomainDrivenDesign.Core.Implements
 (namespace or folder)
 - U can place your thin query facade eg: TestDbContext. And Implement your own EventPublisher
+
+# DDD Thoery and Lib
+https://github.com/heynickc/awesome-ddd
+
