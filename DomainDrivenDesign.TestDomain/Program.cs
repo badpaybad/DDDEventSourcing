@@ -28,6 +28,21 @@ namespace DomainDrivenDesign.TestDomain
             Console.WriteLine("Evaluator comment");
             MemoryMessageBuss.PushCommand(new CommentCheckinByEvaluator(checkin.CheckinId, "Hi man, we should change 'boss' to 'bro' ", 0));
             
+            Console.WriteLine("TestDbContext like db to make thin query facade. ");
+            Console.WriteLine("UI -> List all Checkin");
+
+            using (var db =new TestDbContext())
+            {
+                foreach (var c in db.CheckinTests.ToList())
+                {
+                    Console.WriteLine($"Checkin: {c.StartDate} with Duration: {c.Duration}");
+                    foreach (var ch in db.CheckinHistoryTests.Where(i=>i.CheckinId==c.Id).ToList())
+                    {
+                        Console.WriteLine($"-comment- {ch.Comment}");
+                    }
+                }
+            }
+
             Console.ReadLine();
         }
     }
