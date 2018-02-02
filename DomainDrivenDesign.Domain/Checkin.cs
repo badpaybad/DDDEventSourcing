@@ -30,7 +30,7 @@ namespace DomainDrivenDesign.Domain
 
         void Apply(CheckinCreated e)
         {
-            Id = e.Id;
+            Id = e.Id.ToString();
             StartDate = e.StartDate;
             Duration = e.Duration;
             Status = CheckinStatus.Pending;
@@ -56,7 +56,7 @@ namespace DomainDrivenDesign.Domain
         {
             if (Status == CheckinStatus.Expired) throw new Exception("Expired checkin");
 
-            ApplyChange(new CheckinCommentCommented(Guid.NewGuid(),Id, comment, employeeId, createdOn: DateTime.Now));
+            ApplyChange(new CheckinCommentCommented(Guid.NewGuid(),Guid.Parse(Id), comment, employeeId, createdOn: DateTime.Now));
         }
 
         public void EvaluatorComment(string comment, int evaluatorId)
@@ -65,10 +65,10 @@ namespace DomainDrivenDesign.Domain
 
             if (string.IsNullOrEmpty(comment)) throw new Exception("Comment empty");
             
-            ApplyChange(new CheckinCommentCommented(Guid.NewGuid(), Id, comment, evaluatorId, createdOn: DateTime.Now));
+            ApplyChange(new CheckinCommentCommented(Guid.NewGuid(), Guid.Parse(Id), comment, evaluatorId, createdOn: DateTime.Now));
 
             if (Status == CheckinStatus.Pending)
-                ApplyChange(new CheckinCompleted(Id, (int)CheckinStatus.Completed));
+                ApplyChange(new CheckinCompleted(Guid.Parse(Id), (int)CheckinStatus.Completed));
         }
     }
 

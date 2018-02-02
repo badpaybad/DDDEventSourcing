@@ -16,6 +16,8 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
         [Column(Order = 1)]
         public int Version { get; set; }
 
+        [Key]
+        [Column(Order = 2)]
         [StringLength(512)]
         public string AggregateType { get; set; }
 

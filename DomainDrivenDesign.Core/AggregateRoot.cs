@@ -8,22 +8,22 @@ namespace DomainDrivenDesign.Core
     public abstract class AggregateRoot
     {
         
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
-        private readonly IList<BaseEvent> _changes = new List<BaseEvent>();
+        private readonly IList<IEvent> _changes = new List<IEvent>();
 
-        public IList<BaseEvent> Changes
+        public IList<IEvent> Changes
         {
             get { return _changes; }
         }
 
-        protected void ApplyChange(BaseEvent e)
+        protected void ApplyChange(IEvent e)
         {
             this.AsDynamic().Apply(e);
             _changes.Add(e);
         }
 
-        public void LoadFromHistory(IList<BaseEvent> eventsHistory)
+        public void LoadFromHistory(IList<IEvent> eventsHistory)
         {
             foreach (var e in eventsHistory)
             {

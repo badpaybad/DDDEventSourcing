@@ -27,8 +27,8 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
         public TAggregate Get(object aggregateId)
         {
             var eventsHistory = _eventSourcingDbContext.EventSoucings.AsNoTracking()
-                .Where(i => i.Id.Equals(aggregateId.ToString())
-                    //&& i.AggregateType.Equals(typeof(TAggregate).FullName,StringComparison.OrdinalIgnoreCase)
+                .Where(i => i.Id.Equals(aggregateId.ToString(), StringComparison.OrdinalIgnoreCase)
+                && i.AggregateType.Equals(typeof(TAggregate).AssemblyQualifiedName,StringComparison.OrdinalIgnoreCase)
                 ).OrderBy(i => i.Version).ThenBy(i => i.CreatedDate).ToList();
 
             if (eventsHistory.Any() == false)
@@ -37,7 +37,7 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
 
             TAggregate a = new TAggregate();
 
-            List<BaseEvent> convertedEvents = new List<BaseEvent>();
+            List<IEvent> convertedEvents = new List<IEvent>();
 
             foreach (var e in eventsHistory)
             {
@@ -49,7 +49,7 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
                     if (objectType == null || jobj == null) continue;
 
                     var o = jobj.ToObject(objectType);
-                    convertedEvents.Add((BaseEvent)o);
+                    convertedEvents.Add((IEvent)o);
                 }
                 catch (Exception ex)
                 {
@@ -78,7 +78,8 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
 
             var lastVersion = _eventSourcingDbContext.EventSoucings
                 .AsNoTracking()
-                .Where(i => i.Id == aggregate.Id.ToString())
+                .Where(i => i.Id == aggregate.Id.ToString()
+                && i.AggregateType.Equals(typeof(TAggregate).AssemblyQualifiedName, StringComparison.OrdinalIgnoreCase))
                 .Select(i=>i.Version)
                 .OrderByDescending(i=>i)
                 .FirstOrDefault();
