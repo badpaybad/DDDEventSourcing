@@ -24,7 +24,7 @@ DDD EventSourcing
  ### CqrsEventSourcingRepository
  Get Events and build them become Object Domain. 
  CQRS require unique Identify for each Domain so that my solution for this Identify is: Type of Domain and Id of Domain. 
- Actually table "EventSourcingDescription" have compse Primary key (Id,AggregateType,Version).
+ Actually table "EventSourcingDescription" have compose Primary key (Id,AggregateType,Version).
  So that Id of Domain (also Id for table in db read) can be Auto number, Guid ... or any things. 
  
  ## class MemoryMessageBuss
