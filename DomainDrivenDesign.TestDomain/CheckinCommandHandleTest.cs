@@ -11,7 +11,7 @@ namespace DomainDrivenDesign.TestDomain
     [TestClass]
     public class CheckinCommandHandleTest
     {
-        private CheckinCommandHandle cmdHandle = new CheckinCommandHandle();
+        private CheckinCommandHandles cmdHandle = new CheckinCommandHandles();
 
         public CheckinCommandHandleTest()
         {

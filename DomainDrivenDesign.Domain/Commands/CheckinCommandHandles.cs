@@ -4,11 +4,11 @@ using DomainDrivenDesign.Core.Implements;
 
 namespace DomainDrivenDesign.Domain.Commands
 {
-    public class CheckinCommandHandle : ICommandHandle<CreateCheckin>, ICommandHandle<CommentCheckinByEmployee>, ICommandHandle<CommentCheckinByEvaluator>
+    public class CheckinCommandHandles : ICommandHandle<CreateCheckin>, ICommandHandle<CommentCheckinByEmployee>, ICommandHandle<CommentCheckinByEvaluator>
     {
         private ICqrsEventSourcingRepository<Checkin> _repository;
 
-        public CheckinCommandHandle()
+        public CheckinCommandHandles()
         {
             _repository = new CqrsEventSourcingRepository<Checkin>(new EventPublisher());
         }

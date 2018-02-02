@@ -9,7 +9,7 @@ using DomainDrivenDesign.Core.Implements.Model;
 
 namespace DomainDrivenDesign.Domain.Events
 {
-    public class CheckinEventHandle : IEventHandle<CheckinCreated>,
+    public class CheckinEventHandles : IEventHandle<CheckinCreated>,
         IEventHandle<CheckinCommentCommented>,IEventHandle<CheckinCompleted>
     {
         public void Handle(CheckinCreated e)

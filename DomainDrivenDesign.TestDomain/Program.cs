@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DomainDrivenDesign.Core.Implements;
 using DomainDrivenDesign.Domain;
+using DomainDrivenDesign.Domain.AutoNumber.Commands;
 using DomainDrivenDesign.Domain.Commands;
 
 namespace DomainDrivenDesign.TestDomain
@@ -28,9 +29,19 @@ namespace DomainDrivenDesign.TestDomain
             Console.WriteLine("Evaluator comment");
             MemoryMessageBuss.PushCommand(new CommentCheckinByEvaluator(checkin.CheckinId, "Hi man, we should change 'boss' to 'bro' ", 0));
             
+
+            Console.WriteLine("Test auto number");
+             MemoryMessageBuss.PushCommand(new CreateAutoNumberTest("My old Name"));
+            //from ui got Id for AutoNumberTest
+            //using (var db =new TestDbContext())
+            //{
+            //    var temp = db.AutoNumberTests.FirstOrDefault();
+            //    MemoryMessageBuss.PushCommand(new ChangeNameOfAutoNumberTest(10, "This is New Name"));
+            //}
+
             Console.WriteLine("TestDbContext like db to make thin query facade. ");
             Console.WriteLine("UI -> List all Checkin");
-
+            
             using (var db =new TestDbContext())
             {
                 foreach (var c in db.CheckinTests.ToList())
@@ -40,6 +51,11 @@ namespace DomainDrivenDesign.TestDomain
                     {
                         Console.WriteLine($"-comment- {ch.Comment}");
                     }
+                }
+
+                foreach (var a in db.AutoNumberTests.ToList())
+                {
+                    Console.WriteLine($"Autonumber Id:{a.Id} Name:{a.Name}");
                 }
             }
 

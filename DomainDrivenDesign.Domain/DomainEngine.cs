@@ -44,7 +44,7 @@ namespace DomainDrivenDesign.Domain
 
         private static void CommandHandleRegister()
         {
-            CheckinCommandHandle checkinCommandHandle = new CheckinCommandHandle();
+            CheckinCommandHandles checkinCommandHandle = new CheckinCommandHandles();
             MemoryMessageBuss.RegisterCommand<CreateCheckin>(checkinCommandHandle.Handle);
             MemoryMessageBuss.RegisterCommand<CommentCheckinByEmployee>(checkinCommandHandle.Handle);
             MemoryMessageBuss.RegisterCommand<CommentCheckinByEvaluator>(checkinCommandHandle.Handle);
@@ -52,7 +52,7 @@ namespace DomainDrivenDesign.Domain
 
         private static void EventHandleRegister()
         {
-            CheckinEventHandle checkinEventHandle = new CheckinEventHandle();
+            CheckinEventHandles checkinEventHandle = new CheckinEventHandles();
             MemoryMessageBuss.RegisterEvent<CheckinCreated>(checkinEventHandle.Handle);
             MemoryMessageBuss.RegisterEvent<CheckinCommentCommented>(checkinEventHandle.Handle);
             MemoryMessageBuss.RegisterEvent<CheckinCompleted>(checkinEventHandle.Handle);

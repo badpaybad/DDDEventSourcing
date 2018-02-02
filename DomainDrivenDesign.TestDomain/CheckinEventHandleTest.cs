@@ -14,7 +14,7 @@ namespace DomainDrivenDesign.TestDomain
             new CreateDatabaseIfNotExists<TestDbContext>().InitializeDatabase(new TestDbContext());
         }
 
-        CheckinEventHandle evtHandle=new CheckinEventHandle();
+        CheckinEventHandles evtHandle=new CheckinEventHandles();
 
         [TestMethod]
         public void CreateCheckin()

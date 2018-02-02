@@ -58,6 +58,7 @@
     <Compile Include="Commands\ICommandHandle.cs" />
     <Compile Include="Events\IEventHandle.cs" />
     <Compile Include="Events\IEventPublisher.cs" />
+    <Compile Include="Implements\Model\AutoNumberTest.cs" />
     <Compile Include="Reflection\ICqrsHandle.cs" />
     <Compile Include="Reflection\PrivateReflectionDynamicObject.cs" />
     <Compile Include="Reflection\PrivateReflectionDynamicObjectExtensions.cs" />

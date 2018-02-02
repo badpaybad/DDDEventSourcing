@@ -47,17 +47,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoNumber\Commands\AutoNumberTestCommandHandles.cs" />
+    <Compile Include="AutoNumber\Commands\ChangeNameOfAutoNumberTest.cs" />
+    <Compile Include="AutoNumber\Commands\CreateAutoNumberTest.cs" />
+    <Compile Include="AutoNumber\Events\AutoNumberTestChangedName.cs" />
+    <Compile Include="AutoNumber\Events\AutoNumberTestCreated.cs" />
     <Compile Include="Checkin.cs" />
-    <Compile Include="Commands\CheckinCommandHandle.cs" />
+    <Compile Include="Commands\CheckinCommandHandles.cs" />
     <Compile Include="Commands\CommentCheckinByEmployee.cs" />
     <Compile Include="Commands\CommentCheckinByEvaluator.cs" />
     <Compile Include="Commands\CreateCheckin.cs" />
+    <Compile Include="AutoNumber\DomainAutoNumberTest.cs" />
     <Compile Include="DomainEngine.cs" />
     <Compile Include="Entities\CheckinComment.cs" />
+    <Compile Include="AutoNumber\Events\AutoNumberTestEventHandles.cs" />
     <Compile Include="Events\CheckinCommentCommented.cs" />
     <Compile Include="Events\CheckinCompleted.cs" />
     <Compile Include="Events\CheckinCreated.cs" />
-    <Compile Include="Events\CheckinEventHandle.cs" />
+    <Compile Include="Events\CheckinEventHandles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

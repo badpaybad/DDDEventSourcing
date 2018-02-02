@@ -12,5 +12,6 @@ namespace DomainDrivenDesign.Core.Implements
 
         public DbSet<CheckinTest> CheckinTests { get; set; }
         public DbSet<CheckinHistoryTest> CheckinHistoryTests { get; set; }
+        public DbSet<AutoNumberTest> AutoNumberTests { get; set; }
     }
 }

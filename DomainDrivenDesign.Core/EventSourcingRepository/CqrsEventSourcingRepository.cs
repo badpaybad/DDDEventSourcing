@@ -17,7 +17,7 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
             new CreateDatabaseIfNotExists<EventSourcingDbContext>();
 
         private IEventPublisher _eventPublisher;
-        
+
         public CqrsEventSourcingRepository(IEventPublisher eventPublisher)
         {
             _eventPublisher = eventPublisher;
@@ -28,7 +28,7 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
         {
             var eventsHistory = _eventSourcingDbContext.EventSoucings.AsNoTracking()
                 .Where(i => i.Id.Equals(aggregateId.ToString(), StringComparison.OrdinalIgnoreCase)
-                && i.AggregateType.Equals(typeof(TAggregate).AssemblyQualifiedName,StringComparison.OrdinalIgnoreCase)
+                && i.AggregateType.Equals(typeof(TAggregate).AssemblyQualifiedName, StringComparison.OrdinalIgnoreCase)
                 ).OrderBy(i => i.Version).ThenBy(i => i.CreatedDate).ToList();
 
             if (eventsHistory.Any() == false)
@@ -54,7 +54,7 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
                 catch (Exception ex)
                 {
                     //todo:should consider what should do
-                    throw new AggregateHistoryBuilderException($"Check event types for AggregateType: {typeof(TAggregate).FullName} with Id: {aggregateId}",ex);
+                    throw new AggregateHistoryBuilderException($"Check event types for AggregateType: {typeof(TAggregate).FullName} with Id: {aggregateId}", ex);
                 }
             }
 
@@ -70,6 +70,8 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
         /// <param name="expectedVersion">-1: automatic get lastest version</param>
         public void Save(TAggregate aggregate, int expectedVersion = -1)
         {
+            if (string.IsNullOrEmpty(aggregate.Id)) throw new ArgumentNullException($"Aggregate with Id null");
+
             List<EventSourcingDescription> eventChanges = new List<EventSourcingDescription>();
 
             var aggregateChangeds = aggregate.Changes.ToList();
@@ -80,10 +82,10 @@ namespace DomainDrivenDesign.Core.EventSourcingRepository
                 .AsNoTracking()
                 .Where(i => i.Id == aggregate.Id.ToString()
                 && i.AggregateType.Equals(typeof(TAggregate).AssemblyQualifiedName, StringComparison.OrdinalIgnoreCase))
-                .Select(i=>i.Version)
-                .OrderByDescending(i=>i)
+                .Select(i => i.Version)
+                .OrderByDescending(i => i)
                 .FirstOrDefault();
-         
+
             if (expectedVersion >= 0)
             {
                 if (lastVersion != expectedVersion)
