@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDrivenDesign.Core", "DomainDrivenDesign.Core\DomainDrivenDesign.Core.csproj", "{94DB03A1-6CC1-4C92-8742-DE9202416323}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDrivenDesign.Domain", "DomainDrivenDesign.Domain\DomainDrivenDesign.Domain.csproj", "{D2BBAEA6-0C9A-4B20-BBDA-62C89D3C1571}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDrivenDesign.TestDomain", "DomainDrivenDesign.TestDomain\DomainDrivenDesign.TestDomain.csproj", "{5CC8966D-B6B7-4AF9-B661-D7C00BB9F43A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDrivenDesign.DomainShoppingCart", "DomainDrivenDesign.DomainShoppingCart\DomainDrivenDesign.DomainShoppingCart.csproj", "{0B7CD6B6-447E-4471-A21D-9E466AC8028F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5CC8966D-B6B7-4AF9-B661-D7C00BB9F43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CC8966D-B6B7-4AF9-B661-D7C00BB9F43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CC8966D-B6B7-4AF9-B661-D7C00BB9F43A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B7CD6B6-447E-4471-A21D-9E466AC8028F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B7CD6B6-447E-4471-A21D-9E466AC8028F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B7CD6B6-447E-4471-A21D-9E466AC8028F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B7CD6B6-447E-4471-A21D-9E466AC8028F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

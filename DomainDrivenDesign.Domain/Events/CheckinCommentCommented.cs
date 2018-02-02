@@ -4,19 +4,23 @@ using DomainDrivenDesign.Core.EventSourcingRepository;
 
 namespace DomainDrivenDesign.Domain.Events
 {
-    public class CheckinCommentCommented : BaseEvent
+    public class CheckinCommentCommented : IEvent
     {
+        public readonly Guid Id;
         public readonly string Comment;
         public readonly int UserId;
         public readonly DateTime CreatedOn;
         public readonly Guid CheckinId;
 
-        public CheckinCommentCommented(Guid id, Guid checkinId, string comment, int userId, DateTime createdOn) : base(id)
+        public CheckinCommentCommented(Guid id, Guid checkinId, string comment, int userId, DateTime createdOn)
         {
+            Id = id;
             Comment = comment;
             UserId = userId;
             CreatedOn = createdOn;
             CheckinId = checkinId;
         }
+
+        public int Version { get; set; }
     }
 }

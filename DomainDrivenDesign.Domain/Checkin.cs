@@ -9,6 +9,7 @@ namespace DomainDrivenDesign.Domain
 {
     public class Checkin : AggregateRoot
     {
+
         public enum CheckinStatus
         {
             Pending,
@@ -19,6 +20,8 @@ namespace DomainDrivenDesign.Domain
         public Checkin()
         {
         }
+        
+        public override string Id { get; set; }
 
         private CheckinStatus Status;
 
@@ -70,6 +73,7 @@ namespace DomainDrivenDesign.Domain
             if (Status == CheckinStatus.Pending)
                 ApplyChange(new CheckinCompleted(Guid.Parse(Id), (int)CheckinStatus.Completed));
         }
+
     }
 
 }

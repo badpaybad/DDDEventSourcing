@@ -8,7 +8,7 @@ namespace DomainDrivenDesign.Core
     public abstract class AggregateRoot
     {
         
-        public string Id { get; set; }
+        public abstract string Id { get; set; }
 
         private readonly IList<IEvent> _changes = new List<IEvent>();
 

@@ -10,3 +10,5 @@
 /DomainDrivenDesign.TestDomain/obj/Debug
 /packages
 /.vs/DomainDrivenDesign.Core/v15
+/DomainDrivenDesign.DomainShoppingCart/bin/Debug
+/DomainDrivenDesign.DomainShoppingCart/obj/Debug
