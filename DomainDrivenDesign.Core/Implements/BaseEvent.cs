@@ -1,7 +1,7 @@
 ﻿using System;
 using DomainDrivenDesign.Core.Events;
 
-namespace DomainDrivenDesign.Core.EventSourcingRepository
+namespace DomainDrivenDesign.Core.Implements
 {
     public class BaseEvent : IEvent
     {

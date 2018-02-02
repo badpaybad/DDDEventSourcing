@@ -56,7 +56,7 @@
     <Compile Include="AggregateRoot.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandHandle.cs" />
-    <Compile Include="EventSourcingRepository\BaseEvent.cs" />
+    <Compile Include="Implements\BaseEvent.cs" />
     <Compile Include="Events\IEventHandle.cs" />
     <Compile Include="Events\IEventPublisher.cs" />
     <Compile Include="Reflection\ICqrsHandle.cs" />

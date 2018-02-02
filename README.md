@@ -46,6 +46,7 @@ ICommandHandle , IEventHandle inherit from ICqrsHandle
 ## DomainDrivenDesign.Core.Implements
 (namespace or folder)
 - U can place your thin query facade eg: TestDbContext. And Implement your own EventPublisher
+- Do your own code base of your project here
 
 # DDD reference
 https://github.com/heynickc/awesome-ddd
