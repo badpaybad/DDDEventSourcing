@@ -10,9 +10,22 @@ DDD EventSourcing
  # Guider
  - Clone and open with visual studio 2017
  - Rebuild all solution to restore nuget package
+ - because I use IDatabaseInitializer (.net entity framework) so that Should care any change for Entity of DbContext.
+ In my way I just delete table __MigrationHistory and do manual change for each table : ))
  
  # Thoery coding
  UI -> people Read and think -> people Do, action ... something -> UI push Command(s) -> Command Handle -> Build Object Domain by Events using Repository -> Domain call action(s) do business -> Repository store Events into EventSourcing Db -> Fire Event -> Event Handle write to Database Read -> Thin Query Facade from Db read -> UI ...
+ 
+ ## CqrsEventSourcingRepository and EventSourcingDbContext and EventSourcingDescription
+ ### EventSourcingDbContext 
+ just db access for CqrsEventSourcingRepository
+ ### EventSourcingDescription
+ Entity (Table in db) to store Events fired from Domain object
+ ### CqrsEventSourcingRepository
+ Get Events and build them become Object Domain. 
+ CQRS require unique Identify for each Domain so that my solution for this Identify is: Type of Domain and Id of Domain. 
+ Actually table "EventSourcingDescription" have compse Primary key (Id,AggregateType,Version).
+ So that Id of Domain (also Id for table in db read) can be Auto number, Guid ... or any things. 
  
  ## class MemoryMessageBuss
  I just use Memory to fake message buss
