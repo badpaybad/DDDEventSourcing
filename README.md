@@ -24,7 +24,7 @@ DDD EventSourcing
  ### CqrsEventSourcingRepository
  Get Events and build them become Object Domain. 
  CQRS require unique Identify for each Domain so that my solution for this Identify is: Type of Domain and Id of Domain. 
- Actually table "EventSourcingDescription" have compse Primary key (Id,AggregateType,Version).
+ Actually table "EventSourcingDescription" have compose Primary key (Id,AggregateType,Version).
  So that Id of Domain (also Id for table in db read) can be Auto number, Guid ... or any things. 
  
  ## class MemoryMessageBuss
@@ -46,6 +46,7 @@ ICommandHandle , IEventHandle inherit from ICqrsHandle
 ## DomainDrivenDesign.Core.Implements
 (namespace or folder)
 - U can place your thin query facade eg: TestDbContext. And Implement your own EventPublisher
+- Do your own code base of your project here
 
 # DDD reference
 https://github.com/heynickc/awesome-ddd

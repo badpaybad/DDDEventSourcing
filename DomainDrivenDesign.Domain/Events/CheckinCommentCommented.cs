@@ -1,6 +1,7 @@
 ﻿using System;
 using DomainDrivenDesign.Core.Events;
 using DomainDrivenDesign.Core.EventSourcingRepository;
+using DomainDrivenDesign.Core.Implements;
 
 namespace DomainDrivenDesign.Domain.Events
 {
