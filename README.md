@@ -49,5 +49,8 @@ ICommandHandle , IEventHandle inherit from ICqrsHandle
 - Do your own code base of your project here
 
 # DDD reference
-https://github.com/heynickc/awesome-ddd
+- https://github.com/heynickc/awesome-ddd
+- https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs
 
+# Patterns always good but business analytic and design should be good first
+ Should try to learn DDD. Careful to create correct Domain and its actions, events. Because Events are history and they should not be remove or change. 
