@@ -1,6 +1,6 @@
-﻿# This project for basic sample about how to use Domain, CommandHandle, EventHandle
-- Each Domain (business) should place in separate project, to clear code, 
+# This project for basic sample about how to use Domain, CommandHandle, EventHandle
+- Each Domain (business) should place in separate project, to clean code, 
 and dont care much about alot of Commands and Events
-- Actually can add reference other Domain (business) to use or subcribe Event in need
+- Actually we can add reference other Domain (business) to use or subcribe Event in need, use Domain directly and commands
 - Eg: CheckinCreated -> AutoNumber must create. check class CheckinAndAutoNumberWorkfollow
-## Workfollow. It just subscribe Events (of Domain business), then decide what Command should be next ( call command of other Domain business)
+## Workfollow. It just subscribe Events (of Domain business), then decide what Command should be next ( call commands of other Domain business)
