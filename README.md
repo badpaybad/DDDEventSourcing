@@ -29,9 +29,9 @@ DDD EventSourcing
  
  ## class MemoryMessageBuss
  I just use Memory to fake message buss
- - Implement your own with RabitMQ or AzzureServicesBuss or Redis queue ... to full seperate and more security and can distributed.
+ - Implement your own with RabitMQ or AzureServicesBuss or Redis queue ... to full seperate and more security and can distributed.
  - I use Redis as own message buss in this git https://github.com/badpaybad/redis-microservices
- 
+ - 
  ## class DomainEngine
  - To register handle to process Event and Command
 
@@ -42,6 +42,10 @@ DDD EventSourcing
 Use to reflection to load dynamic file dll and register to MemoryMessageBuss
 ICommandHandle , IEventHandle inherit from ICqrsHandle
 - Check function DomainEngine.Boot() and find MemoryMessageBuss.RegisterAssembly(assembly);
+
+## Workfollow
+Can create separate project. It is simple like that. If some Event fired. Just register (subcribe) and call next command.
+This class also inherit IEventHandle but It should NOT directly write to db read. It just decide if an Event fired (mean an action of Domain done) which command should be the next call. eg: check class CheckinAndAutoNumberWorkfollow
 
 ## DomainDrivenDesign.Core.Implements
 (namespace or folder)
