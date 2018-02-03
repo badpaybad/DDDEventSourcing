@@ -53,5 +53,8 @@
     <Folder Include="Commands\" />
     <Folder Include="Events\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.rm" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
