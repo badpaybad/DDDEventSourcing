@@ -39,6 +39,11 @@ namespace DomainDrivenDesign.Domain
             Status = CheckinStatus.Pending;
         }
 
+        /// <summary>
+        /// these kind of function will call when build up from list events to this Domain object
+        /// check funtion LoadFromHistory in class AggregateRoot
+        /// </summary>
+        /// <param name="e"></param>
         void Apply(CheckinCompleted e)
         {
             Status = CheckinStatus.Completed;

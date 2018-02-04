@@ -35,8 +35,11 @@ DDD EventSourcing
  ## class DomainEngine
  - To register handle to process Event and Command
 
- ## class Checkin (DDD)
- class Checkin inherit AggregateRoot as an Domain in this sample.
+ ## Domain business (DDD) (should learn how to analytic and design business by DDD)
+ eg: class Checkin inherit AggregateRoot as an Domain in this sample.
+ - each class for Domain business, inherit AggregateRoot and MUST create private functions Apply to apply Events.
+ Why must create private Apply plz Check function LoadFromHistory in class AggregateRoot 
+- function LoadFromHistory called at function Get in class CqrsEventSourcingRepository
 
 ## ICqrsHandle
 Use to reflection to load dynamic file dll and register to MemoryMessageBuss
