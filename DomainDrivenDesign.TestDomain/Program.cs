@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using DomainDrivenDesign.Core.Implements;
 using DomainDrivenDesign.Domain;
 using DomainDrivenDesign.Domain.AutoNumber.Commands;
 using DomainDrivenDesign.Domain.Commands;
+using DomainDrivenDesign.DomainShoppingCart.Commands;
+using DomainDrivenDesign.DomainShoppingCart.Entities;
+using Newtonsoft.Json;
 
 namespace DomainDrivenDesign.TestDomain
 {
@@ -58,6 +62,20 @@ namespace DomainDrivenDesign.TestDomain
                     Console.WriteLine($"Autonumber Id:{a.Id} Name:{a.Name}");
                 }
             }
+
+            Console.WriteLine("Test shopping cart");
+
+            var shoppingCartId = Guid.NewGuid().ToString();
+            Console.WriteLine("create shopping cart");
+            MemoryMessageBuss.PushCommand(new CreateShoppingCart(shoppingCartId));
+            Console.WriteLine("add item shopping cart");
+            MemoryMessageBuss.PushCommand(new AddItemToShoppingCart(shoppingCartId,"itemId1","Test1",2));
+
+            Console.WriteLine("Get shopping cart data from http runtime cache");
+            //get data from thin query facade of shopping cart : )) just httpruntime cache
+            var shoppingCart = HttpRuntime.Cache[shoppingCartId] as FrontEndCart;
+
+            Console.WriteLine(JsonConvert.SerializeObject(shoppingCart));
 
             Console.ReadLine();
         }

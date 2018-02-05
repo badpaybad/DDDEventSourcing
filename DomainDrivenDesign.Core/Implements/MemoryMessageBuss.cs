@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using DomainDrivenDesign.Core.Commands;
@@ -21,6 +22,23 @@ namespace DomainDrivenDesign.Core.Implements
         static MemoryMessageBuss()
         {
 
+        }
+
+        public static void AutoRegisterExecutingAssembly()
+        {
+            var executingAssembly = Assembly.GetExecutingAssembly();
+            List<string> allAssemblies = new List<string>();
+
+            string path = Path.GetDirectoryName(executingAssembly.Location);
+
+            foreach (string dll in Directory.GetFiles(path, "*.dll"))
+                allAssemblies.Add(dll);
+
+
+            foreach (var assembly in allAssemblies)
+            {
+                MemoryMessageBuss.RegisterAssembly(assembly);
+            }
         }
 
         /// <summary>

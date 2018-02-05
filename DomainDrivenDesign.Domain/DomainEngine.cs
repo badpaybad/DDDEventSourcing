@@ -22,23 +22,10 @@ namespace DomainDrivenDesign.Domain
 
             //if dont want manual regist = code
             //can use reflection to load dll from folder Bin eg:
-            var executingAssembly = Assembly.GetExecutingAssembly();
-            List<string> allAssemblies = new List<string>();
+            MemoryMessageBuss.AutoRegisterExecutingAssembly();
 
-            string path = Path.GetDirectoryName(executingAssembly.Location);
-
-            foreach (string dll in Directory.GetFiles(path, "*.dll"))
-                allAssemblies.Add(dll);
-
-
-            foreach (var assembly in allAssemblies)
-            {
-                MemoryMessageBuss.RegisterAssembly(assembly);
-            }
-
-
+            //manual register command handle and event handle
             //EventHandleRegister();
-
             //CommandHandleRegister();
         }
 

@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,8 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddItemToShoppingCart.cs" />
+    <Compile Include="Commands\CheckoutShoppingCart.cs" />
+    <Compile Include="Commands\CreateShoppingCart.cs" />
+    <Compile Include="Commands\RemoveAllFromShoppingCart.cs" />
+    <Compile Include="Commands\RemoveItemFromShoppingCart.cs" />
+    <Compile Include="Commands\ShoppingCartCommandHandle.cs" />
+    <Compile Include="Entities\Enums.cs" />
+    <Compile Include="Entities\FrontEndCart.cs" />
+    <Compile Include="Events\ShoppingCartAllRemoved.cs" />
+    <Compile Include="Events\ShoppingCartCheckedOut.cs" />
+    <Compile Include="Events\ShoppingCartEventhHandle.cs" />
+    <Compile Include="Events\ShoppingCartItemAdded.cs" />
+    <Compile Include="Events\ShoppingCartItemRemoved.cs" />
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Events\ShoppingCartCreated.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainDrivenDesign.Core\DomainDrivenDesign.Core.csproj">
@@ -49,10 +64,7 @@
       <Name>DomainDrivenDesign.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Events\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="README.rm" />
   </ItemGroup>
