@@ -55,6 +55,12 @@ This class also inherit IEventHandle but It should NOT directly write to db read
 - U can place your thin query facade eg: TestDbContext. And Implement your own EventPublisher
 - Do your own code base of your project here
 
+### Developer guide:
+- Create domain business: Must inherit AggregateRoot
+- Create command handle: Must inherit ICommandHandle
+- Create event handle: Must inherit IEventHandle
+- eg: check code in folder DomainDrivenDesign.Domain.AutoNumber 
+
 # DDD reference
 - https://github.com/heynickc/awesome-ddd
 - https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs
