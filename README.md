@@ -15,6 +15,8 @@ DDD EventSourcing
  
  # Thoery coding
  UI -> people Read and think -> people Do, action ... something -> UI push Command(s) -> Command Handle -> Build Object Domain by Events using Repository -> Domain call action(s) do business -> Repository store Events into EventSourcing Db -> Fire Event -> Event Handle write to Database Read -> Thin Query Facade from Db read -> UI ...
+
+https://github.com/badpaybad/DDDEventSourcing/wiki/Step-to-step-to-implement-code
  
  ## CqrsEventSourcingRepository and EventSourcingDbContext and EventSourcingDescription
  ### EventSourcingDbContext 
