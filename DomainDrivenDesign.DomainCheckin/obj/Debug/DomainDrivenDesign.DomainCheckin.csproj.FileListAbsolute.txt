@@ -1,0 +1,13 @@
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\bin\Debug\DomainDrivenDesign.DomainCheckin.dll
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\bin\Debug\DomainDrivenDesign.DomainCheckin.pdb
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\bin\Debug\DomainDrivenDesign.Core.dll
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\bin\Debug\EntityFramework.dll
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\bin\Debug\Newtonsoft.Json.dll
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\bin\Debug\DomainDrivenDesign.Core.pdb
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\bin\Debug\DomainDrivenDesign.Core.dll.config
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\bin\Debug\EntityFramework.xml
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\bin\Debug\Newtonsoft.Json.xml
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\obj\Debug\DomainDrivenDesign.DomainCheckin.csprojResolveAssemblyReference.cache
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\obj\Debug\DomainDrivenDesign.DomainCheckin.csproj.CoreCompileInputs.cache
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\obj\Debug\DomainDrivenDesign.DomainCheckin.dll
+D:\work\DDDEventSourcing\DomainDrivenDesign.DomainCheckin\obj\Debug\DomainDrivenDesign.DomainCheckin.pdb

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDrivenDesign.TestDoma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDrivenDesign.DomainShoppingCart", "DomainDrivenDesign.DomainShoppingCart\DomainDrivenDesign.DomainShoppingCart.csproj", "{0B7CD6B6-447E-4471-A21D-9E466AC8028F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDrivenDesign.DomainCheckin", "DomainDrivenDesign.DomainCheckin\DomainDrivenDesign.DomainCheckin.csproj", "{A1901DE2-B20C-4680-8F62-F56D1E6F4126}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0B7CD6B6-447E-4471-A21D-9E466AC8028F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B7CD6B6-447E-4471-A21D-9E466AC8028F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B7CD6B6-447E-4471-A21D-9E466AC8028F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1901DE2-B20C-4680-8F62-F56D1E6F4126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1901DE2-B20C-4680-8F62-F56D1E6F4126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1901DE2-B20C-4680-8F62-F56D1E6F4126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1901DE2-B20C-4680-8F62-F56D1E6F4126}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
