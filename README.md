@@ -67,6 +67,7 @@ This class also inherit IEventHandle but It should NOT directly write to db read
 - https://github.com/heynickc/awesome-ddd
 - https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs
 - https://github.com/gregoryyoung/m-r
+- https://github.com/jbogard/MediatR
 
 # Patterns always good but business analytic and design should be good first
  Should try to learn DDD. Careful to create correct Domain and its actions, events. Because Events are history and they should not be remove or change. 
