@@ -15,6 +15,8 @@ DDD EventSourcing
  
  # Thoery coding
  UI -> people Read and think -> people Do, action ... something -> UI push Command(s) -> Command Handle -> Build Object Domain by Events using Repository -> Domain call action(s) do business -> Repository store Events into EventSourcing Db -> Fire Event -> Event Handle write to Database Read -> Thin Query Facade from Db read -> UI ...
+
+https://github.com/badpaybad/DDDEventSourcing/wiki/Step-to-step-to-implement-code
  
  ## CqrsEventSourcingRepository and EventSourcingDbContext and EventSourcingDescription
  ### EventSourcingDbContext 
@@ -65,6 +67,7 @@ This class also inherit IEventHandle but It should NOT directly write to db read
 - https://github.com/heynickc/awesome-ddd
 - https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs
 - https://github.com/gregoryyoung/m-r
+- https://github.com/jbogard/MediatR
 
 # Patterns always good but business analytic and design should be good first
  Should try to learn DDD. Careful to create correct Domain and its actions, events. Because Events are history and they should not be remove or change. 
