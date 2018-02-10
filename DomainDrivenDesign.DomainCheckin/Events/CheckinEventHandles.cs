@@ -4,17 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DomainDrivenDesign.Core.Events;
-using DomainDrivenDesign.DomainCheckin.Entities;
 
 namespace DomainDrivenDesign.DomainCheckin.Events
 {
-    public class CheckinStarted : IEvent
+   public class CheckinEventHandles:IEventHandle<CheckinCreated>
     {
-        public CheckinStarted(int checkinId, List<EmployeeInfo> staffs)
+        public void Handle(CheckinCreated e)
         {
             throw new NotImplementedException();
         }
-
-        public int Version { get; set; }
     }
 }

@@ -33,6 +33,8 @@ namespace DomainDrivenDesign.DomainCheckin
             _startDate = startDate;
             _endDate = endDate;
             _status = CheckinStatus.New;
+
+            ApplyChange(new CheckinCreated(int.Parse(Id), startDate< endDate,_status));
         }
 
         public void Start()
@@ -64,7 +66,7 @@ namespace DomainDrivenDesign.DomainCheckin
             }
             //can build email to send
             //or just email domain subscribe CheckinStarted to remind
-            ApplyChange(new CheckinStarted(Id, staffs));
+            ApplyChange(new CheckinStarted(int.Parse(Id), staffs));
         }
 
         public void EvaluatorComment(string comment, int fromEvaluatorId, int toEmployeeId)
@@ -87,12 +89,12 @@ namespace DomainDrivenDesign.DomainCheckin
             {
                 evl.Status = CheckinCommentStatus.Completed;
 
-                ApplyChange(new CheckinEvaluateCompleted(Id, fromEvaluatorId, toEmployeeId));
+                ApplyChange(new CheckinEvaluateCompleted(int.Parse(Id), fromEvaluatorId, toEmployeeId));
             }
 
             evl.Comments.Add(new CheckinComment() { Comment = comment, EmployeeId = fromEvaluatorId });
 
-            ApplyChange(new CheckinEvaluateCommented(Id, comment, fromEvaluatorId, toEmployeeId));
+            ApplyChange(new CheckinEvaluateCommented(int.Parse(Id), comment, fromEvaluatorId, toEmployeeId));
         }
 
         public void EmployeeComment(string comment, int fromEmployeeId, int toEvaluatorId)
@@ -113,7 +115,7 @@ namespace DomainDrivenDesign.DomainCheckin
 
             evl.Comments.Add(new CheckinComment() { Comment = comment, EmployeeId = fromEmployeeId });
 
-            ApplyChange(new CheckinEvaluateCommented(Id, comment, fromEmployeeId, toEvaluatorId));
+            ApplyChange(new CheckinEvaluateCommented(int.Parse(Id), comment, fromEmployeeId, toEvaluatorId));
         }
 
         public void NotifyBeforeExpire()
@@ -133,7 +135,7 @@ namespace DomainDrivenDesign.DomainCheckin
             List<EmployeeInfo> staffs = _employeeServices.FindStaffWithValidEffectiveDate(_startDate, _endDate);
             //can build email to send
             //or just email domain subscribe CheckinRemidedBeforeExpire to remind
-            ApplyChange(new CheckinRemidedBeforeExpire(Id, staffs));
+            ApplyChange(new CheckinRemidedBeforeExpire(int.Parse(Id), staffs));
         }
 
         public void Expired()
@@ -147,8 +149,9 @@ namespace DomainDrivenDesign.DomainCheckin
 
             List<EmployeeInfo> staffs = _employeeServices.FindStaffWithValidEffectiveDate(_startDate, _endDate);
 
-            ApplyChange(new CheckinExpired(Id, staffs));
+            ApplyChange(new CheckinExpired(int.Parse(Id), staffs));
         }
     }
 
+    
 }

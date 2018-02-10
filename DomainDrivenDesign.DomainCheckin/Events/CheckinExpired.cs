@@ -7,7 +7,7 @@ namespace DomainDrivenDesign.DomainCheckin.Events
 {
     public class CheckinExpired : IEvent
     {
-        public CheckinExpired(string checkinId, List<EmployeeInfo> staffs)
+        public CheckinExpired(int checkinId, List<EmployeeInfo> staffs)
         {
             throw new NotImplementedException();
         }

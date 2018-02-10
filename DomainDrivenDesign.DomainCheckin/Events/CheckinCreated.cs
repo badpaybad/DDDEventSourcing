@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using DomainDrivenDesign.Core.Events;
 using DomainDrivenDesign.DomainCheckin.Entities;
 
 namespace DomainDrivenDesign.DomainCheckin.Events
 {
-    public class CheckinRemidedBeforeExpire : IEvent
+    public class CheckinCreated : IEvent
     {
-        public CheckinRemidedBeforeExpire(int checkinId, List<EmployeeInfo> staffs)
+        public CheckinCreated(int checkinId, bool b, CheckinStatus status)
         {
             throw new NotImplementedException();
         }

@@ -46,8 +46,10 @@
     <Compile Include="Entities\CheckinStatus.cs" />
     <Compile Include="Entities\CheckinCommentStatus.cs" />
     <Compile Include="Entities\EmployeeInfo.cs" />
+    <Compile Include="Events\CheckinCreated.cs" />
     <Compile Include="Events\CheckinEvaluateCommented.cs" />
     <Compile Include="Events\CheckinEvaluateCompleted.cs" />
+    <Compile Include="Events\CheckinEventHandles.cs" />
     <Compile Include="Events\CheckinExpired.cs" />
     <Compile Include="Events\CheckinRemidedBeforeExpire.cs" />
     <Compile Include="Events\CheckinStarted.cs" />

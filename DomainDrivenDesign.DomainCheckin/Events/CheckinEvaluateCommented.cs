@@ -5,7 +5,7 @@ namespace DomainDrivenDesign.DomainCheckin.Events
 {
     public class CheckinEvaluateCommented : IEvent
     {
-        public CheckinEvaluateCommented(string checkinId, string comment, int fromEvaluatorId, int toEmployeeId)
+        public CheckinEvaluateCommented(int checkinId, string comment, int fromEvaluatorId, int toEmployeeId)
         {
             throw new NotImplementedException();
         }
