@@ -5,7 +5,7 @@ DDD EventSourcing
  - Entity framework 6.0.0
  - Newtonjson 10.0.3
  - System.Data.SqlClient 4.4.2
- - MsSql 2008 or later
+ - MsSql 2008 or later ( can use any kind of db, just add provider for Entity framework)
  
  # Guider
  - Clone and open with visual studio 2017
