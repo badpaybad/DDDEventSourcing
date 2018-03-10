@@ -1,5 +1,13 @@
 # Domain driven design and EventSourcing
-DDD EventSourcing
+
+## The benefit
+ - Event sourcing (the history of business domain object) => we can do Machine learning, Deep learning, AI ... to investigate the behaviors.
+ - Command and Query: Easy to separate the logic business and logic display. Easy control code, find & change commands, events take less effort.
+ - Can use distributed queue or message buss to store command and query => distributed process
+ - Can seperate CommandHandle process and EventHandle process (actualy can be difference server), both of them see each other through the queue or message buss
+ - Can be more security because of separate server to run CommandHandle, EventHandle and the Frontend (thin query, query facade). Between all of them sea each other by the queue or message buss (redis queue, message buss, rabitMQ, or other streaming process system ...)
+
+## DDD EventSourcing
 
  - .Net framework 4.6.1
  - Entity framework 6.0.0
@@ -81,10 +89,5 @@ This class also inherit IEventHandle but It should NOT directly write to db read
 # Patterns always good but business analytic and design should be good first
  Should try to learn DDD. Careful to create correct Domain and its actions, events. Because Events are history and they should not be remove or change. 
  
- # The benefit
- - Event sourcing (the history of business domain object) => we can do Machine learning, Deep learning, AI ... to investigate the behaviors.
- - Command and Query: Easy to separate the logic business and logic display. Easy control code, find & change command take less effort.
- - Can use queue or message buss to store command and query => distributed process
- - Can seperate CommandHandle process and EventHandle process (actualy can be difference server), both of them see each other through the queue or message buss
- - Can be more security because of separate server to run CommandHandle, EventHandle and the frontend (thin query, query facade). Between all to sea each other is queue or message buss
+ 
  
