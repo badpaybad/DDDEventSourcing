@@ -5,7 +5,7 @@ DDD EventSourcing
  - Entity framework 6.0.0
  - Newtonjson 10.0.3
  - System.Data.SqlClient 4.4.2
- - MsSql 2008 or later
+ - MsSql 2008 or later ( can use any kind of db, just add provider for Entity framework)
  
  # Guider
  - Clone and open with visual studio 2017
@@ -15,6 +15,13 @@ DDD EventSourcing
  
  # Thoery coding
  UI -> people Read and think -> people Do, action ... something -> UI push Command(s) -> Command Handle -> Build Object Domain by Events using Repository -> Domain call action(s) do business -> Repository store Events into EventSourcing Db -> Fire Event -> Event Handle write to Database Read -> Thin Query Facade from Db read -> UI ...
+ 
+ ### Dispatch Commands, Events handling
+ - Each type of commands, events will have a function to process named Handle ( classes inherit from ICommandHandle, ICommandEventHandle)
+ - If you want distributed can do like this:
+ -- Each type (type full name) ơf commands, event will be the queue name. (can use redis queue ...)
+ -- When UI push command, command will be enqueue command (seriallize object command into json ) to queue name (its type full name).
+ -- Create and console or process or services ... to dequeue and call Handle function
 
 https://github.com/badpaybad/DDDEventSourcing/wiki/Step-to-step-to-implement-code
  
