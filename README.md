@@ -40,7 +40,9 @@ https://github.com/badpaybad/DDDEventSourcing/wiki/Step-to-step-to-implement-cod
  I just use Memory to fake message buss
  - Implement your own with RabitMQ or AzureServicesBuss or Redis queue ... to full seperate and more security and can distributed.
  - I use Redis as own message buss in this git https://github.com/badpaybad/redis-microservices
- - 
+ ### DomainDrivenDesign.Core.Implements.MemoryQueue 
+ Implement memory queue for real async process command and event 
+ 
  ## class DomainEngine
  - To register handle to process Event and Command
 
