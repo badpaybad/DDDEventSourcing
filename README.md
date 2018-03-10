@@ -41,7 +41,7 @@ https://github.com/badpaybad/DDDEventSourcing/wiki/Step-to-step-to-implement-cod
  - Implement your own with RabitMQ or AzureServicesBuss or Redis queue ... to full seperate and more security and can distributed.
  - I use Redis as own message buss in this git https://github.com/badpaybad/redis-microservices
  ### DomainDrivenDesign.Core.Implements.MemoryQueue 
- Implement memory queue, use seperate thread for real async process command and event 
+ Implement memory queue, use separte thread for real async process command and event 
  
  ## class DomainEngine
  - To register handle to process Event and Command
