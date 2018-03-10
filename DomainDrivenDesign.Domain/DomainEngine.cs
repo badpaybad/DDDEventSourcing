@@ -27,6 +27,8 @@ namespace DomainDrivenDesign.Domain
             //manual register command handle and event handle
             //EventHandleRegister();
             //CommandHandleRegister();
+
+            MemoryQueue.Boot();
         }
 
         private static void CommandHandleRegister()

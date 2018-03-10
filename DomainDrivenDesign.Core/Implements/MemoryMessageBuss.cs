@@ -155,7 +155,7 @@ namespace DomainDrivenDesign.Core.Implements
             }
         }
 
-        internal static void Push(IEvent e)
+        internal static void ExecEvent(IEvent e)
         {
             var t = e.GetType();
             List<Action<IEvent>> listAction;
@@ -192,9 +192,29 @@ namespace DomainDrivenDesign.Core.Implements
             }
         }
 
-        public static void PushCommand(ICommand e)
+        /// <summary>
+        /// you can move this function to other class eg: CommandSender
+        /// </summary>
+        /// <param name="c"></param>
+        public static void PushCommand(ICommand c)
         {
-            var t = e.GetType();
+            //var t = c.GetType();
+            //Action<ICommand> a;
+            //lock (_commandLocker)
+            //{
+            //    if (!_commandHandler.TryGetValue(t, out a) || a == null)
+            //    {
+            //        throw new EntryPointNotFoundException($"Not found type: {t}. Check DomainEngine.Boot");
+            //    }
+            //}
+
+            //a(c);
+            MemoryQueue.PushCommand(c);
+        }
+
+        internal static void ExecCommand(ICommand c)
+        {
+            var t = c.GetType();
             Action<ICommand> a;
             lock (_commandLocker)
             {
@@ -204,10 +224,10 @@ namespace DomainDrivenDesign.Core.Implements
                 }
             }
 
-            a(e);
-
+            a(c);
         }
 
+        
 
     }
 }

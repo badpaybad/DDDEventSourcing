@@ -11,7 +11,7 @@ namespace DomainDrivenDesign.DomainCheckin.Events
     {
         public void Handle(CheckinCreated e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
