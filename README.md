@@ -2,10 +2,10 @@
 
 ## The benefit
  - Event sourcing (the history of business domain object) => we can do Machine learning, Deep learning, AI ... to investigate the behaviors.
- - Command and Query: Easy to separate the logic business and logic display. Easy control code, find & change commands, events take less effort.
+ - Command and Query: Easy to separate the logic business and logic display. Easy control code, find & change commands, events, logic domain business take less effort.
  - Can use distributed queue or message buss to store command and query => distributed process
  - Can seperate CommandHandle process and EventHandle process (actualy can be difference server), both of them see each other through the queue or message buss
- - Can be more security because of separate server to run CommandHandle, EventHandle and the Frontend (thin query, query facade). Between all of them sea each other by the queue or message buss (redis queue, message buss, rabitMQ, or other streaming process system ...)
+ - Can be more security because of separate server to run CommandHandle, EventHandle and the Frontend (thin query, query facade). Between all of them see each other by the queue or message buss (redis queue, message buss, rabitMQ, or other streaming process system ...)
 
 ## DDD EventSourcing
 
