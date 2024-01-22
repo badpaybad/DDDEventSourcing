@@ -89,5 +89,14 @@ This class also inherit IEventHandle but It should NOT directly write to db read
 # Patterns always good but business analytic and design should be good first
  Should try to learn DDD. Careful to create correct Domain and its actions, events. Because Events are history and they should not be remove or change. 
  
+ # Use redis as message queue, pub sub
+
+ https://github.com/badpaybad/redis-as-message-broker 
+
+ # Other implement 
  
+ https://github.com/badpaybad/dotnetcore-message-buss-with-redis 
  
+ https://github.com/badpaybad/cqrs-dot-net-core
+ 
+ https://github.com/badpaybad/redis-microservices
